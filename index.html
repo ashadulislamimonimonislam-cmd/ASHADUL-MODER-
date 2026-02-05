@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASHADUL MODER - Secure Access Key</title>
+    <style>
+        /* বেসিক রিসেট এবং ফন্ট */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1120; /* গাঢ় নীল ব্যাকগ্রাউন্ড */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 10px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ইউজার ইনফো বার (ID দেখানোর জন্য) */
+        .user-info-bar {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #1e293b;
+            padding: 8px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 11px;
+            color: #94a3b8;
+            border: 1px solid #334155;
+        }
+        
+        .user-info-bar span {
+            font-weight: bold;
+            color: #fbbf24;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding-bottom: 50px;
+        }
+
+        /* হেডার সেকশন - লোগো সহ */
+        .header {
+            background-color: #151e32;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #2a3b55;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* লোগো সেকশন - গোল বক্স এবং ইমেজ ফিক্স করা হয়েছে */
+        .logo-box {
+            width: 65px;
+            height: 65px;
+            min-width: 65px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fbbf24; /* গোল্ডেন বর্ডার */
+            background: #000;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+        }
+
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ইমেজটি গোল বক্সের ভেতর ফিট করবে */
+            border-radius: 50%;
+        }
+
+        .header-text {
+            z-index: 2;
+        }
+
+        .header-text h2 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            color: #fbbf24;
+        }
+
+        .badge {
+            background-color: #b91c1c;
+            color: #ffffff;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .header-desc {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        /* সিস্টেম লগ */
+        .system-log {
+            background-color: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+        }
+
+        .log-title {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .console {
+            color: #fbbf24;
+            line-height: 1.5;
+        }
+        
+        .console span {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* সার্ভার সেকশন */
+        .server-section {
+            background-color: #151e32;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #2a3b55;
+            margin-bottom: 20px;
+        }
+
+        .label-text {
+            color: #fbbf24;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        select.server-select {
+            width: 100%;
+            padding: 14px;
+            background-color: #0b1120;
+            border: 2px solid #fbbf24;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* জেনারেট বাটন */
+        .gen-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #dc2626, #f87171); /* লাল গ্রেডিয়েন্ট */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .gen-btn:active {
+            transform: scale(0.98);
+        }
+        
+        /* ডিজেবল বাটন স্টাইল (AdBlock এর জন্য) */
+        .gen-btn:disabled {
+            background: #475569;
+            color: #94a3b8;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        /* প্যানেল লিংক বাটন */
+        .panel-btn {
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px; /* উপরের বাটন থেকে গ্যাপ */
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #2563eb, #3b82f6); /* নীল গ্রেডিয়েন্ট */
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .panel-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* ইনফো কার্ড */
+        .info-card {
+            background-color: #151e32;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #2a3b55;
+            margin-bottom: 20px;
+        }
+
+        .info-title {
+            color: #f87171;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        .info-text ol {
+            padding-left: 20px;
+        }
+        
+        .info-text li {
+            margin-bottom: 10px;
+        }
+        
+        /* AdBlock ডিটেকশন এলিমেন্ট */
+        .ads-banner {
+            height: 1px;
+            width: 1px;
+            position: absolute;
+            top: -1000px;
+            left: -1000px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="user-info-bar">
+        <div>User ID: <span id="uid-display">Loading...</span></div>
+        <div>Device: <span id="did-display">Loading...</span></div>
+    </div>
+
+    <div class="container">
+        
+        <div class="header">
+            <div class="logo-box">
+                <img src="https://i.supaimg.com/d6849af7-69de-48e1-ac31-99e0a882c740.png" alt="ASHADUL MODER Logo">
+            </div>
+            <div class="header-text">
+                <span class="badge">SECURE ACCESS PANEL</span>
+                <h2>ASHADUL MODER – Access Key</h2>
+                <p class="header-desc">Get your temporary access key for ASHADUL MODER Tools.</p>
+            </div>
+        </div>
+
+        <div class="system-log">
+            <span class="log-title">System Log</span>
+            <div class="console" id="console-output">
+                <span>[System] ASHADUL MODER Panel initialized...</span>
+                <span>[System] Checking security protocols...</span>
+            </div>
+        </div>
+
+        <div class="server-section">
+            <label class="label-text">Select Server</label>
+            
+            <select class="server-select" id="regionSelect">
+                <option value="s1">Server 1 (VIP FAST)</option>
+                <option value="s2">Server 2 (NORMAL)</option>
+                <option value="s3">Server 3 (NORMAL)</option>
+                <option value="s4">Server 4 (NORMAL)</option>
+            </select>
+
+            <button class="gen-btn" id="generateBtn" onclick="generateKey()">Generate Access Key</button>
+            
+            <button class="panel-btn" onclick="openPanel()">PANEL LINK</button>
+        </div>
+
+        <div class="info-card">
+            <h3 class="info-title">How ASHADUL MODER Key Works</h3>
+            <div class="info-text">
+                <p style="margin-bottom:10px;">This system generates temporary keys for trusted sessions.</p>
+                <ol>
+                    <li><b>Select:</b> Choose a server from the list above.</li>
+                    <li><b>Generate:</b> Click the button to process your request.</li>
+                    <li><b>Verify:</b> You will be redirected to the key generator page.</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="ads-banner ad-box adsbox" id="ad-detector"></div>
+
+    <script>
+        // ২ নম্বর কোড অনুযায়ী ডিভাইস আইডি জেনারেটর (HWID Sync)
+        function getHWID() {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl');
+            const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+            const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+            const hwidRaw = btoa(renderer + navigator.userAgent).substr(0, 12).toUpperCase();
+            return hwidRaw;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const userId = 'USR-' + Math.floor(100000 + Math.random() * 900000);
+            const deviceId = getHWID();
+
+            document.getElementById('uid-display').innerText = userId;
+            document.getElementById('did-display').innerText = deviceId;
+            
+            detectAdBlock();
+        });
+
+        function detectAdBlock() {
+            const adBox = document.getElementById('ad-detector');
+            const generateBtn = document.getElementById('generateBtn');
+            const consoleDiv = document.getElementById('console-output');
+            
+            setTimeout(() => {
+                const isBlocked = adBox.offsetParent === null || adBox.offsetHeight === 0 || adBox.clientHeight === 0;
+                
+                if (isBlocked) {
+                    generateBtn.disabled = true;
+                    generateBtn.innerText = "Turn OFF AdBlock to Continue";
+                    generateBtn.style.background = "#333";
+                    
+                    const errorLog = document.createElement('span');
+                    errorLog.style.color = '#ff0000';
+                    errorLog.innerText = `[Error] AdBlock Detected! Please disable it.`;
+                    consoleDiv.appendChild(errorLog);
+                } else {
+                    const successLog = document.createElement('span');
+                    successLog.style.color = '#00ff00';
+                    successLog.innerText = `[Success] Security Check Passed.`;
+                    consoleDiv.appendChild(successLog);
+                }
+            }, 500);
+        }
+
+        function openPanel() {
+            window.location.href = "https://t.me/+7WucfrS0eT4zYjA1"; 
+        }
+
+        function generateKey() {
+            const consoleDiv = document.getElementById('console-output');
+            const selectBox = document.getElementById('regionSelect');
+            
+            const selectedValue = selectBox.value;
+            const selectedText = selectBox.options[selectBox.selectedIndex].text;
+            const time = new Date().toLocaleTimeString();
+            
+            const newLog = document.createElement('span');
+            newLog.style.color = '#00ff00';
+            newLog.innerText = `[${time}] Connecting to ${selectedText}...`;
+            consoleDiv.appendChild(newLog);
+            
+            let destinationLink = "";
+
+            if (selectedValue === "s1") {
+                destinationLink = "https://ashadulislamimonimonislam-cmd.github.io/123568/"; 
+            } 
+            else if (selectedValue === "s2") {
+                destinationLink = "https://ashadulislamimonimonislam-cmd.github.io/123568/";
+            } 
+            else if (selectedValue === "s3") {
+                destinationLink = "https://ashadulislamimonimonislam-cmd.github.io/123568/";
+            } 
+            else if (selectedValue === "s4") {
+                destinationLink = "https://ashadulislamimonimonislam-cmd.github.io/123568/";
+            }
+
+            setTimeout(() => {
+                const successLog = document.createElement('span');
+                successLog.innerText = `[Success] Redirecting to generator...`;
+                consoleDiv.appendChild(successLog);
+
+                if(destinationLink !== "") {
+                    window.location.href = destinationLink;
+                } else {
+                    alert("Link not set yet!");
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
