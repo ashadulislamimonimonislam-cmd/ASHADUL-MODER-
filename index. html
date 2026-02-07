@@ -332,7 +332,7 @@
 
             <button class="gen-btn" id="generateBtn" onclick="generateKey()">Generate Access Key</button>
             
-            <button class="panel-btn" onclick="openPanel()">PANEL LINK</button>
+            <button class="panel-btn" onclick="openPanel()">DATE:7/2/25PANEL LINK</button>
         </div>
 
         <div class="info-card">
@@ -413,7 +413,7 @@
         }
 
         function openPanel() {
-            window.location.href = "https://t.me/+7WucfrS0eT4zYjA1"; 
+            window.location.href = "https://linksgo.in/THE_KING_CHAT_V179"; 
         }
 
         function generateKey() {
