@@ -14,8 +14,9 @@
         }
 
         body {
-            background-color: #0b1120; /* গাঢ় নীল ব্যাকগ্রাউন্ড */
-            color: #ffffff;
+            /* কালার পরিবর্তন: RGB */
+            background-color: rgb(11, 17, 32); 
+            color: rgb(255, 255, 255);
             display: flex;
             justify-content: center;
             min-height: 100vh;
@@ -24,24 +25,24 @@
             align-items: center;
         }
 
-        /* ইউজার ইনফো বার (ID দেখানোর জন্য) */
+        /* ইউজার ইনফো বার */
         .user-info-bar {
             width: 100%;
             max-width: 480px;
             display: flex;
             justify-content: space-between;
-            background-color: #1e293b;
+            background-color: rgb(30, 41, 59);
             padding: 8px 15px;
             border-radius: 8px;
             margin-bottom: 10px;
             font-size: 11px;
-            color: #94a3b8;
-            border: 1px solid #334155;
+            color: rgb(148, 163, 184);
+            border: 1px solid rgb(51, 65, 85);
         }
         
         .user-info-bar span {
             font-weight: bold;
-            color: #fbbf24;
+            color: rgb(251, 191, 36);
         }
 
         .container {
@@ -50,13 +51,13 @@
             padding-bottom: 50px;
         }
 
-        /* হেডার সেকশন - লোগো সহ */
+        /* হেডার সেকশন */
         .header {
-            background-color: #151e32;
+            background-color: rgb(21, 30, 50);
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 20px;
-            border: 1px solid #2a3b55;
+            border: 1px solid rgb(42, 59, 85);
             display: flex;
             align-items: center;
             gap: 15px;
@@ -64,7 +65,7 @@
             overflow: hidden;
         }
 
-        /* লোগো সেকশন - গোল বক্স এবং ইমেজ ফিক্স করা হয়েছে */
+        /* লোগো সেকশন */
         .logo-box {
             width: 65px;
             height: 65px;
@@ -74,15 +75,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid #fbbf24; /* গোল্ডেন বর্ডার */
-            background: #000;
+            border: 2px solid rgb(251, 191, 36);
+            background: rgb(0, 0, 0);
             box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
         }
 
         .logo-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ইমেজটি গোল বক্সের ভেতর ফিট করবে */
+            object-fit: cover;
             border-radius: 50%;
         }
 
@@ -93,12 +94,12 @@
         .header-text h2 {
             font-size: 17px;
             margin-bottom: 5px;
-            color: #fbbf24;
+            color: rgb(251, 191, 36);
         }
 
         .badge {
-            background-color: #b91c1c;
-            color: #ffffff;
+            background-color: rgb(185, 28, 28);
+            color: rgb(255, 255, 255);
             padding: 3px 8px;
             border-radius: 4px;
             font-size: 10px;
@@ -109,14 +110,14 @@
 
         .header-desc {
             font-size: 12px;
-            color: #94a3b8;
+            color: rgb(148, 163, 184);
             margin-top: 5px;
         }
 
         /* সিস্টেম লগ */
         .system-log {
-            background-color: #0f172a;
-            border: 1px solid #1e293b;
+            background-color: rgb(15, 23, 42);
+            border: 1px solid rgb(30, 41, 59);
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 20px;
@@ -125,14 +126,14 @@
         }
 
         .log-title {
-            color: #fff;
+            color: rgb(255, 255, 255);
             font-weight: bold;
             margin-bottom: 10px;
             display: block;
         }
 
         .console {
-            color: #fbbf24;
+            color: rgb(251, 191, 36);
             line-height: 1.5;
         }
         
@@ -143,15 +144,15 @@
 
         /* সার্ভার সেকশন */
         .server-section {
-            background-color: #151e32;
+            background-color: rgb(21, 30, 50);
             padding: 20px;
             border-radius: 15px;
-            border: 1px solid #2a3b55;
+            border: 1px solid rgb(42, 59, 85);
             margin-bottom: 20px;
         }
 
         .label-text {
-            color: #fbbf24;
+            color: rgb(251, 191, 36);
             font-weight: 600;
             margin-bottom: 10px;
             display: block;
@@ -160,23 +161,23 @@
         select.server-select {
             width: 100%;
             padding: 14px;
-            background-color: #0b1120;
-            border: 2px solid #fbbf24;
-            color: #fff;
+            background-color: rgb(11, 17, 32);
+            border: 2px solid rgb(251, 191, 36);
+            color: rgb(255, 255, 255);
             border-radius: 8px;
             font-size: 14px;
             outline: none;
             cursor: pointer;
         }
 
-        /* জেনারেট বাটন */
+        /* জেনারেট বাটন (RGB গ্রেডিয়েন্ট) */
         .gen-btn {
             width: 100%;
             padding: 15px;
             margin-top: 15px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(90deg, #dc2626, #f87171); /* লাল গ্রেডিয়েন্ট */
+            background: linear-gradient(90deg, rgb(220, 38, 38), rgb(248, 113, 113));
             color: white;
             font-weight: bold;
             font-size: 16px;
@@ -189,22 +190,21 @@
             transform: scale(0.98);
         }
         
-        /* ডিজেবল বাটন স্টাইল (AdBlock এর জন্য) */
         .gen-btn:disabled {
-            background: #475569;
-            color: #94a3b8;
+            background: rgb(71, 85, 105);
+            color: rgb(148, 163, 184);
             cursor: not-allowed;
             box-shadow: none;
         }
 
-        /* প্যানেল লিংক বাটন */
+        /* প্যানেল লিংক বাটন (RGB গ্রেডিয়েন্ট) */
         .panel-btn {
             width: 100%;
             padding: 15px;
-            margin-top: 10px; /* উপরের বাটন থেকে গ্যাপ */
+            margin-top: 10px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(90deg, #2563eb, #3b82f6); /* নীল গ্রেডিয়েন্ট */
+            background: linear-gradient(90deg, rgb(37, 99, 235), rgb(59, 130, 246));
             color: white;
             font-weight: bold;
             font-size: 16px;
@@ -219,15 +219,15 @@
 
         /* ইনফো কার্ড */
         .info-card {
-            background-color: #151e32;
+            background-color: rgb(21, 30, 50);
             padding: 20px;
             border-radius: 15px;
-            border: 1px solid #2a3b55;
+            border: 1px solid rgb(42, 59, 85);
             margin-bottom: 20px;
         }
 
         .info-title {
-            color: #f87171;
+            color: rgb(248, 113, 113);
             font-weight: bold;
             margin-bottom: 15px;
             font-size: 16px;
@@ -235,7 +235,7 @@
 
         .info-text {
             font-size: 13px;
-            color: #cbd5e1;
+            color: rgb(203, 213, 225);
             line-height: 1.6;
         }
         
@@ -247,7 +247,7 @@
             margin-bottom: 10px;
         }
         
-        /* AdBlock ডিটেকশন এলিমেন্ট */
+        /* AdBlock ডিটেকশন এলিমেন্ট (Honey Pot) */
         .ads-banner {
             height: 1px;
             width: 1px;
@@ -256,16 +256,50 @@
             left: -1000px;
         }
 
+        /* AdBlock ওভারলে (ফুল স্ক্রিন ব্লক) */
+        #adblock-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(11, 17, 32);
+            z-index: 2147483647; /* সর্বোচ্চ Z-Index */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #adblock-overlay h1 {
+            color: rgb(220, 38, 38);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        #adblock-overlay p {
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            max-width: 400px;
+        }
+
     </style>
 </head>
 <body>
+
+    <div id="adblock-overlay">
+        <h1>AdBlock / DNS Detected!</h1>
+        <p>This system has detected an active AdBlocker, DNS Blocker, or 3rd Party blocking app. <br><br> Please turn it OFF and refresh the page to access.</p>
+    </div>
 
     <div class="user-info-bar">
         <div>User ID: <span id="uid-display">Loading...</span></div>
         <div>Device: <span id="did-display">Loading...</span></div>
     </div>
 
-    <div class="container">
+    <div class="container" id="main-content">
         
         <div class="header">
             <div class="logo-box">
@@ -318,7 +352,6 @@
     <div class="ads-banner ad-box adsbox" id="ad-detector"></div>
 
     <script>
-        // ২ নম্বর কোড অনুযায়ী ডিভাইস আইডি জেনারেটর (HWID Sync)
         function getHWID() {
             const canvas = document.createElement('canvas');
             const gl = canvas.getContext('webgl');
@@ -335,33 +368,48 @@
             document.getElementById('uid-display').innerText = userId;
             document.getElementById('did-display').innerText = deviceId;
             
-            detectAdBlock();
+            // উন্নত মানের AdBlock ডিটেকশন কল করা হচ্ছে
+            checkAdBlockAdvanced();
         });
 
-        function detectAdBlock() {
+        // নতুন অ্যাডভান্সড ডিটেকশন ফাংশন (DNS & 3rd Party App সাপোর্টেড)
+        async function checkAdBlockAdvanced() {
             const adBox = document.getElementById('ad-detector');
-            const generateBtn = document.getElementById('generateBtn');
-            const consoleDiv = document.getElementById('console-output');
-            
-            setTimeout(() => {
-                const isBlocked = adBox.offsetParent === null || adBox.offsetHeight === 0 || adBox.clientHeight === 0;
-                
-                if (isBlocked) {
-                    generateBtn.disabled = true;
-                    generateBtn.innerText = "Turn OFF AdBlock to Continue";
-                    generateBtn.style.background = "#333";
-                    
-                    const errorLog = document.createElement('span');
-                    errorLog.style.color = '#ff0000';
-                    errorLog.innerText = `[Error] AdBlock Detected! Please disable it.`;
-                    consoleDiv.appendChild(errorLog);
-                } else {
-                    const successLog = document.createElement('span');
-                    successLog.style.color = '#00ff00';
-                    successLog.innerText = `[Success] Security Check Passed.`;
-                    consoleDiv.appendChild(successLog);
+            const overlay = document.getElementById('adblock-overlay');
+            const mainContent = document.getElementById('main-content');
+            let isBlocked = false;
+
+            // ১. বেসিক এলিমেন্ট হাইডিং চেক (CSS Blocking)
+            if (adBox.offsetParent === null || adBox.offsetHeight === 0 || adBox.clientHeight === 0) {
+                isBlocked = true;
+            }
+
+            // ২. নেটওয়ার্ক/DNS ব্লকিং চেক (Google Ads ডোমেইন পিং করা)
+            // এটি DNS লেভেল ব্লকার (AdGuard, Private DNS) ধরতে পারে
+            if (!isBlocked) {
+                try {
+                    await fetch('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', {
+                        method: 'HEAD',
+                        mode: 'no-cors'
+                    });
+                } catch (e) {
+                    // যদি রিকোয়েস্ট ফেইল করে, তার মানে DNS বা নেটওয়ার্ক থেকে অ্যাড ব্লক করা আছে
+                    isBlocked = true;
                 }
-            }, 500);
+            }
+
+            // যদি ব্লক ডিটেক্ট হয়
+            if (isBlocked) {
+                mainContent.style.display = 'none'; // কন্টেন্ট গায়েব
+                overlay.style.display = 'flex'; // ওয়ার্নিং শো
+                
+                // বাটন অকেজো করে দেওয়া (নিরাপত্তার জন্য)
+                const btn = document.getElementById('generateBtn');
+                if(btn) {
+                    btn.disabled = true;
+                    btn.onclick = null;
+                }
+            }
         }
 
         function openPanel() {
@@ -377,7 +425,7 @@
             const time = new Date().toLocaleTimeString();
             
             const newLog = document.createElement('span');
-            newLog.style.color = '#00ff00';
+            newLog.style.color = 'rgb(0, 255, 0)'; // RGB
             newLog.innerText = `[${time}] Connecting to ${selectedText}...`;
             consoleDiv.appendChild(newLog);
             
